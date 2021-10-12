@@ -1,0 +1,38 @@
+{% extends 'vocabulary/base.html' %}
+
+{% block title %}
+    TOP
+{% endblock %}
+
+
+{% block main %}
+    <div class="container"><br>
+        <h3>流行りの単語帳</h3>
+        <br>
+        <div class="row">
+            {% for vocab in vocabs %}
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            {{ vocab.name }}
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">
+                                カテゴリ：{{ vocab.category.name }}
+                            </div>
+                            <div class="card-subtitle md-2 text-muted text-right">
+                                作成日：{{ vocab.create_time|date:'Y/m/d' }}
+                            </div>
+                            <div class="card-subtitle md-2 text-right">
+                                作者：{{ vocab.author }}
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a class="btn btn-primary" href="{% url 'detail' vocab.id %}">詳細</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

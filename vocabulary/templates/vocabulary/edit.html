@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>
+            <label for="name">単語帳名</label>
+            <input type="text" name="name" placeholder="{{ vocab.name }}">
+        </p>
+        <p>
+            <label for="category">カテゴリ:</label>
+            <select name="category" id="category">
+            {% for category in categories %}
+                <option value="{{ category.id }}" name="category" >{{ category.name }}</option>
+            {% endfor %}
+            </select>
+        <p>今のカテゴリ：{{  }}</p>
+        </p>
+        <p><button type="submit">作成する</button></p>
+        <p>単語帳名：</p>
+    <small>カテゴリ：{{ vocab.category.name }}</small>
+    <small>作成時間：{{ vocab.create_time|date:'Y/m/d' }}</small>
+    <small>修正時間：{{ vocab.update_time|date:'Y/m/d' }}</small>
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends 'vocabulary/base.html' %}
+
+{% block title %}
+    作成
+{% endblock %}
+
+
+{% block main %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>
+            <label for="name">単語帳名</label>
+            <input type="text" name="name">
+        </p>
+        <p>
+            <label for="category">カテゴリ:</label>
+            <select name="category" id="category">
+                <option value="Null" name="category" selected>---</option>
+            {% for category in categories %}
+                <option value="{{ category.id }}" name="category">{{ category.name }}</option>
+            {% endfor %}
+            </select>
+        </p>
+        <p><button type="submit">作成する</button></p>
+    </form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'vocabulary/base.html' %}
+
+{% block title %}
+    詳細
+{% endblock %}
+
+{% block main %}
+    <p>単語帳名：{{ vocab.name }}</p>
+    <small>カテゴリ：{{ vocab.category.name }}</small>
+    <small>作成時間：{{ vocab.create_time|date:'Y/m/d' }}</small>
+    <small>修正時間：{{ vocab.update_time|date:'Y/m/d' }}</small>
+{% endblock %}

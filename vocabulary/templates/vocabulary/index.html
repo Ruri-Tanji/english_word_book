@@ -1,0 +1,20 @@
+{% extends 'vocabulary/base.html' %}
+
+{% block title %}
+Vocabulary
+{% endblock %}
+
+{% block main %}
+    <table>
+        {% for vocab in vocabs %}
+            <tr>
+                <td>名前：</td>
+                <td><a href="{% url 'detail' vocab.id %}">{{ vocab.name }}</a></td>
+            </tr>
+            <tr>
+                <td>製作者：</td>
+                <td>{{ vocab.author }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
